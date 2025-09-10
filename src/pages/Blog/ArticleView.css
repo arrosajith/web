@@ -1,0 +1,36 @@
+:root{
+  --ink:#0b2240; --white:#fff; --bg:#f7fbff; --muted:#6b7d93;
+}
+
+.article__hero{ position:relative; height: clamp(320px, 42vw, 480px); overflow:hidden; }
+.article__hero img{ width:100%; height:100%; object-fit:cover; transform:scale(1.04); }
+.article__wash{ position:absolute; inset:0; background: linear-gradient(180deg, rgba(0,0,0,.1) 20%, rgba(0,0,0,.65)); }
+.article__heroInner{ position:absolute; left:50%; bottom:20px; transform: translateX(-50%); width:min(1000px, 92%); color:#fff; }
+.article__title{ margin: 10px 0; font-size: clamp(22px, 3.2vw, 40px); font-weight:900; }
+.article__actions{ display:flex; gap:10px; margin-top:10px; }
+.btn{ border-radius:10px; padding:10px 14px; font-weight:800; }
+.btn--ghost{ color:#fff; border:2px solid #a8c7ff; background:transparent; }
+.btn--save{ background:#183a6b; color:#fff; border:none; }
+
+.article__wrap{ width:min(1000px, 92%); margin: 18px auto; display:grid; gap:20px; grid-template-columns: 1fr 260px; }
+.article__content p{ color:#243b55; line-height:1.8; margin: 0 0 14px; font-size: 18px; }
+.article__aside .widget{ background:#fff; border:1px solid #e6eef7; border-radius:12px; padding:12px; }
+.widget__title{ margin:0 0 8px; font-weight:900; }
+.toc{ list-style:none; padding:0; margin:0; display:grid; gap:8px; }
+.toc a{ color:#0b5ed7; text-decoration:underline; }
+
+.article__nav{ width:min(1000px, 92%); margin: 12px auto 6px; display:flex; justify-content:space-between; }
+.article__navBtn{ color:#0b5ed7; font-weight:900; text-decoration:underline; }
+
+.article__suggest{ width:min(1000px, 92%); margin: 4px auto 40px; }
+.article__suggestGrid{ display:grid; gap:14px; grid-template-columns: repeat(3, 1fr); }
+.sugg{ display:block; background:#fff; border-radius:12px; overflow:hidden; border:1px solid #e6eef7; text-decoration:none; }
+.sugg img{ width:100%; height:140px; object-fit:cover; }
+.sugg__body{ padding:10px; }
+.sugg__title{ color:#102a43; font-weight:900; line-height:1.2; }
+.sugg__meta{ color:#6b7d93; font-size:13px; }
+
+@media (max-width: 900px){
+  .article__wrap{ grid-template-columns: 1fr; }
+  .article__suggestGrid{ grid-template-columns: 1fr; }
+}

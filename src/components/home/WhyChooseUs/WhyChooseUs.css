@@ -1,0 +1,87 @@
+:root{
+  --primary:#0b5ed7;
+  --ink:#0b2240;
+  --white:#fff;
+  --text:#102a43;
+}
+
+/* Section frame */
+.choose{
+  position:relative;
+  min-height: 520px;
+  height: clamp(520px, 70vh, 640px);
+  overflow: hidden;           /* trim bg edges */
+  isolation: isolate;
+  background:#000;            /* fallback while image loads */
+}
+
+/* BG + parallax */
+.choose__bgWrap{ position:absolute; inset:0; z-index:0; }
+.choose__bg{
+  position:absolute; left:0; top:0;
+  width:100%; height:100%;
+  will-change: transform;
+  transform: scale(1.15);
+  filter: contrast(1.02) saturate(1.02);
+  pointer-events:none;
+}
+/* using a DIV with bg-image is more robust than <img> for transforms */
+.choose__bg--div{
+  background-size: cover;
+  background-position: center;
+}
+.choose__wash{
+  position:absolute; inset:0;
+  background:
+    radial-gradient(1200px 500px at 32% 40%, rgba(255,255,255,.30), transparent 60%),
+    linear-gradient(90deg, rgba(11,34,64,.20), rgba(11,34,64,0) 45%);
+}
+
+/* Floating card */
+.choose__card{
+  position:absolute;
+  left: clamp(16px, 8vw, 420px - 220px);
+  top: 50%; transform: translateY(-50%);
+  z-index:2;                   /* above bg */
+  width: min(600px, 86vw);
+  background: var(--white);
+  border-radius: 16px;
+  padding: clamp(18px, 3.5vw, 28px);
+  box-shadow: 0 24px 50px rgba(16,42,67,.18), 0 8px 20px rgba(16,42,67,.12);
+  color: var(--ink);
+  animation: cardIn .5s ease both;
+}
+@keyframes cardIn{
+  from{ opacity:0; transform: translateY(calc(-50% + 10px)); }
+  to  { opacity:1; transform: translateY(-50%); }
+}
+
+.choose__eyebrow{ margin:0 0 6px; font-weight:800; color:#2a62b0; font-size:14px; }
+.choose__title{ margin:0 0 12px; font-size: clamp(24px, 3.6vw, 40px); font-weight:800; color:#102a43; }
+
+.choose__list{ list-style:none; padding:0; margin:14px 0 0; display:grid; gap:16px; }
+.choose__item{ display:grid; grid-template-columns: 48px 1fr; gap:14px; }
+.choose__icon{
+  width:48px; height:48px; border-radius:14px;
+  display:grid; place-items:center; background:#eaf2ff; color:#0b5ed7; font-size:24px;
+}
+.choose__itemTitle{ margin:0 0 4px; font-size:16px; font-weight:800; color:#13304f; }
+.choose__itemText{ margin:0; color:#4b5d76; line-height:1.6; }
+
+/* Hover nicety */
+@media (hover:hover){
+  .choose__card:hover{
+    box-shadow: 0 32px 70px rgba(16,42,67,.22), 0 12px 30px rgba(16,42,67,.12);
+    transform: translateY(calc(-50% - 2px));
+  }
+}
+
+/* Responsive */
+@media (max-width: 960px){
+  .choose{ height: 560px; }
+  .choose__card{ left: 50%; transform: translate(-50%, -50%); width: min(640px, 92vw); }
+}
+@media (max-width: 560px){
+  .choose{ height: 620px; }
+  .choose__card{ width: min(680px, 94vw); }
+}

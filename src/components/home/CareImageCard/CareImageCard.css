@@ -1,0 +1,68 @@
+:root{
+  --primary:#0b5ed7;
+  --ink:#0b2240;
+  --white:#fff;
+}
+
+/* Image + floating card wrapper */
+.cic{
+  position:relative;
+  width:100%;
+  max-width: 520px;
+  margin-inline:auto;
+  border-radius: 6px;
+  overflow:hidden;
+  background:#e9f1ff;
+}
+
+.cic__img{
+  display:block;
+  width:100%; height:auto; object-fit:cover; object-position:center;
+}
+
+/* Play button */
+.cic__play{
+  position:absolute; top:12px; left:12px;
+  width:40px; height:40px; border-radius:999px;
+  background:rgba(255,255,255,.95);
+  border:none; cursor:pointer;
+  display:grid; place-items:center;
+  font-size:16px; color:var(--primary);
+  box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+/* Floating white info card */
+.cic__floating{
+  position:absolute; right:-16px; bottom:-18px;
+  width:min(320px, 78%);
+  background:var(--white);
+  border-left:5px solid var(--primary);
+  border-radius:12px;
+  padding:22px 18px 18px 18px;
+  box-shadow:0 20px 40px rgba(11,34,64,.18);
+}
+
+.cic__badge{
+  width:46px; height:46px; border-radius:12px;
+  background:#eaf2ff; color:var(--primary);
+  display:grid; place-items:center; font-size:22px; margin-bottom:10px;
+}
+
+.cic__title{
+  margin:0 0 12px 0;
+  color:#1a2e4a; font-weight:800; font-size:18px; line-height:1.35;
+}
+
+/* two small blue bars under text */
+.cic__underlines{
+  display:flex; gap:8px; align-items:center;
+}
+.cic__underlines span{
+  display:block; height:4px; border-radius:4px; background:var(--primary);
+}
+.cic__underlines span:first-child{ width:40px; }
+.cic__underlines span:last-child{ width:22px; }
+
+@media (max-width: 768px){
+  .cic__floating{ right:10px; bottom:10px; width:78%; }
+}

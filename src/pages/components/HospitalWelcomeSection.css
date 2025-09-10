@@ -1,0 +1,95 @@
+.hospital-welcome-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hospital-welcome-section .background-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.hospital-welcome-section .background-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0s ease-in-out;
+}
+
+.hospital-welcome-section .background-slide.active {
+  opacity: 0;
+}
+
+.hospital-welcome-section .overlay {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: rgba(5, 13, 27, 0.384); /* transparent dark blue */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.hospital-welcome-section .content {
+  color: #ffffff;
+  max-width: 800px;
+  text-align: center;
+}
+
+.hospital-welcome-section h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.hospital-welcome-section p {
+  font-size: 1rem;
+  line-height: 1.7;
+  text-align: justify;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hospital-welcome-section {
+    height: 70vh;
+  }
+
+  .hospital-welcome-section .content {
+    padding: 1rem;
+  }
+
+  .hospital-welcome-section h1 {
+    font-size: 1.8rem;
+  }
+
+  .hospital-welcome-section p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hospital-welcome-section {
+    height: 60vh;
+  }
+
+  .hospital-welcome-section h1 {
+    font-size: 1.5rem;
+  }
+
+  .hospital-welcome-section p {
+    font-size: 0.9rem;
+    padding: 0;
+  }
+}
